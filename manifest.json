@@ -1,0 +1,16 @@
+{
+  "codeowners": [
+    "@d-o-it"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/d-o-it/k8056/blob/main/README.md",
+  "issue_tracker": "https://github.com/d-o-it/k8056/issues",
+  "domain": "k8056",
+  "name": "Velleman K8056",
+  "iot_class": "local_polling",
+  "requirements": [
+    "serialio==2.4.0"
+  ],
+  "version": "0.0.1"
+}
