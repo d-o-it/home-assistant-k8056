@@ -9,7 +9,6 @@ from homeassistant.components.switch import SwitchEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_COUNT
 from homeassistant.core import HomeAssistant
-from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from .const import DOMAIN, HUB
 
@@ -35,7 +34,7 @@ async def async_setup_entry(
 
     entities = []
 
-    hub = hass.data[DOMAIN][config_entry.entry_id][HUB]
+    hub: K8056 = hass.data[DOMAIN][config_entry.entry_id][HUB]
     for card in range(1, int(config_entry.data[CONF_COUNT]) + 1):
         for relay in range(1, 9):
             entities.append(create_k8056_switch_entity(config_entry, hub, card, relay))

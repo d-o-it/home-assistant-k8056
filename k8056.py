@@ -10,7 +10,7 @@ _TIMEOUT = 3.0
 
 
 class K8056:
-    def __init__(self, serial: serialio, repeat=0, wait=0):
+    def __init__(self, serial: serialio, repeat=0, wait=0) -> None:
         self.serial = serial
         self.serial_lock = asyncio.Lock()
         self.repeat = repeat

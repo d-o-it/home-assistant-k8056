@@ -1,0 +1,21 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Gerät ist bereits konfiguriert"
+        },
+        "error": {
+            "cannot_connect": "Fehler beim Verbinden",
+            "invalid_auth": "Anmeldedaten ungültig",
+            "value_error": "Ungültige URL (z.B. serial:///dev/ttyS0 or serial+tcp://127.0.0.1:5000)",
+            "unknown": "Unbekannter Fehler"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "url": "URL",
+                    "count": "Anzahl der Relaiskarten"
+                }
+            }
+        }
+    }
+}
