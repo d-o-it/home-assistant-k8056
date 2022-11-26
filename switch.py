@@ -65,7 +65,7 @@ class K8056Relay(SwitchEntity):
         try:
             await self.hub.set(self.card, self.relay)
         except ConnectionRefusedError as ex:
-            _LOGGER.exception(ex.strerror)
+            _LOGGER.error(ex.strerror)
         else:
             self._is_on = True
             self.async_write_ha_state()
