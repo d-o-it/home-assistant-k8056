@@ -1,6 +1,8 @@
 # home-assistant-k8056
 Velleman K8056 home assistant integration
 
+https://www.velleman.eu/products/view/?country=fr&lang=de&id=351282
+
 # Purpose
 
 This is a integration for Home Assistant : https://www.home-assistant.io
