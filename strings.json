@@ -4,7 +4,7 @@
       "user": {
         "data": {
           "url": "[%key:common::config_flow::data::url%]",
-          "count": "[%key:common::config_flow::data::url%]"
+          "count": "[%key:common::config_flow::data::count%]"
         }
       }
     },

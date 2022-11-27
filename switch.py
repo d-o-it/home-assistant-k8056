@@ -9,6 +9,7 @@ from homeassistant.components.switch import SwitchEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_COUNT
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from .const import DOMAIN, HUB
 
@@ -51,9 +52,23 @@ class K8056Relay(SwitchEntity):
         self.hub = hub
         self.card = card
         self.relay = relay
+        self.card_name = f"K{self.card}"
         self._attr_name = f"K{card}R{relay}"
         self._attr_unique_id = f"{card}.{relay}"
         self._is_on = False
+
+    @property
+    def device_info(self) -> DeviceInfo:
+        """Return device info."""
+        return DeviceInfo(
+            identifiers={
+                # Serial numbers are unique identifiers within a specific domain
+                (DOMAIN, self.card_name)
+            },
+            name=self.card_name,
+            manufacturer="Velleman",
+            model="K8056",
+        )
 
     @property
     def is_on(self) -> bool:
