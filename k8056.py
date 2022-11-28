@@ -16,7 +16,7 @@ class K8056:
         self.repeat = repeat
         self.wait = wait
 
-    async def __worker(self, cmd, card, relay):
+    async def __worker(self, cmd: int, card: int, relay: int):
         try:
             await self.serial.open()
 
@@ -29,14 +29,14 @@ class K8056:
         finally:
             await self.serial.close()
 
-    async def __process(self, cmd, card, relay):
+    async def __process(self, cmd: int, card: int, relay: int):
         await self.serial_lock.acquire()
         try:
             await asyncio.wait_for(self.__worker(cmd, card, relay), _TIMEOUT)
         finally:
             self.serial_lock.release()
 
-    async def set(self, card, relay):
+    async def set(self, card: int, relay: int):
         """Set `relay` (9 for all) of `card`."""
         _LOGGER.info("Switch on card %i relay %i", card, relay)
         if not 0 < relay < 10:
@@ -44,7 +44,7 @@ class K8056:
 
         await self.__process(83, card & 255, relay + 48)
 
-    async def clear(self, card, relay):
+    async def clear(self, card: int, relay: int):
         """Clear `relay` (9 for all) of `card`."""
         _LOGGER.info("Switch off card %i relay %i", card, relay)
         if not 0 < relay < 10:
