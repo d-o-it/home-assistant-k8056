@@ -9,7 +9,7 @@ import serialio.aio.tcp
 
 from homeassistant import config_entries
 from homeassistant.const import CONF_COUNT, CONF_URL
-from homeassistant.core import callback, HomeAssistant
+from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.exceptions import HomeAssistantError
 import homeassistant.helpers.config_validation as cv
@@ -52,7 +52,7 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str,
     # InvalidAuth
 
     # Return info that you want to store in the config entry.
-    return {"title": "Velleman K8056", "url": data[CONF_URL]}
+    return {"title": "Velleman K8056"}
 
 
 class K8056FlowHandler(config_entries.ConfigFlow, domain=DOMAIN):

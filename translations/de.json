@@ -6,7 +6,7 @@
         "error": {
             "cannot_connect": "Fehler beim Verbinden",
             "invalid_auth": "Anmeldedaten ungültig",
-            "value_error": "Ungültige URL (z.B. serial:///dev/ttyS0 or serial+tcp://127.0.0.1:5000)",
+            "value_error": "Ungültige URL (z.B. serial:///dev/ttyS0 or tcp://127.0.0.1:5000)",
             "unknown": "Unbekannter Fehler"
         },
         "step": {

@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import logging
 from typing import Any
-from .k8056 import K8056
 
 from homeassistant.components.switch import SwitchEntity
 from homeassistant.config_entries import ConfigEntry
@@ -11,6 +10,7 @@ from homeassistant.const import CONF_COUNT
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from .k8056 import K8056
 from .const import DOMAIN, HUB
 
 PARALLEL_UPDATES = 0
@@ -18,7 +18,7 @@ PARALLEL_UPDATES = 0
 _LOGGER = logging.getLogger(__name__)
 
 
-def create_k8056_switch_entity(
+def create_switch_entity(
     config_entry: ConfigEntry, hub: K8056, card: int, relay: int
 ) -> K8056Relay:
     """Set up an entity for this domain."""
@@ -38,7 +38,7 @@ async def async_setup_entry(
     hub: K8056 = hass.data[DOMAIN][config_entry.entry_id][HUB]
     for card in range(1, int(config_entry.data[CONF_COUNT]) + 1):
         for relay in range(1, 9):
-            entities.append(create_k8056_switch_entity(config_entry, hub, card, relay))
+            entities.append(create_switch_entity(config_entry, hub, card, relay))
 
     async_add_entities(entities)
 
