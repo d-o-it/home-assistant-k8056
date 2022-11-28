@@ -31,7 +31,7 @@ async def async_setup_entry(
     config_entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up LCN switch entities from a config entry."""
+    """Set up Velleman K8056 switch entities from a config entry."""
 
     entities = []
 
@@ -44,10 +44,10 @@ async def async_setup_entry(
 
 
 class K8056Relay(SwitchEntity):
-    """Representation of a LCN switch for relay ports."""
+    """Representation of a Velleman K8056 switch for relay ports."""
 
     def __init__(self, entry_id: str, hub: K8056, card: int, relay: int) -> None:
-        """Initialize the LCN switch."""
+        """Initialize the Velleman K8056 switch."""
         self.entry_id = entry_id
         self.hub = hub
         self.card = card

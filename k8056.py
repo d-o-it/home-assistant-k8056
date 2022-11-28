@@ -1,4 +1,4 @@
-"""K8056 implementation."""
+"""The Velleman K8056 implementation."""
 
 import logging
 import asyncio
