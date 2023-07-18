@@ -26,8 +26,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     # create connection
     sio = serialio.serial_for_url(entry.data[CONF_URL])
-    (host, port) = sio.from_url(entry.data[CONF_URL])
-    entry.title = f"{host}:{port}"
+    entry.title = f"{sio.port}"
     await sio.set_baudrate(2400)
     await sio.set_timeout(2.0)
     hub = K8056(sio, 1, 0.3)
